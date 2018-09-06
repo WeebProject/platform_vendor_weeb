@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_default.mk)
 
 # Inherit weeb products.
-$(call inherit-product, vendor/weeb/config/common.mk)
+$(call inherit-product, vendor/weeb/config/common_full_phone.mk)
 
 # Shared java libs
 PRODUCT_PACKAGES += \
