@@ -1,2 +1,5 @@
-# Include QCOM macros
-include vendor/weeb/build/core/qcom_utils.mk
+# Include board/platform macros
+include vendor/weeb/build/core/utils.mk
+
+# Include vendor platform definitions
+include vendor/weeb/build/core/vendor/*.mk
