@@ -17,3 +17,6 @@
 
 # Inherit from our versioning
 $(call inherit-product, vendor/weeb/config/versioning.mk)
+
+# Inherit from our kernel/header generator
+$(call inherit-product, vendor/weeb/config/BoardConfigWeeb.mk)
