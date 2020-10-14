@@ -1,12 +1,4 @@
 bootstrap_go_package {
-    name: "soong-weeb",
-    pkgPath: "weeb/soong/android",
-    srcs: [
-        "android/variable.go",
-    ],
-}
-
-bootstrap_go_package {
     name: "soong-weeb-generator",
     pkgPath: "weeb/soong/generator",
     deps: [
