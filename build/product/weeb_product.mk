@@ -105,3 +105,8 @@ PRODUCT_LOCALES := en_US
 
 # Enforce RRO targets
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Gapps
+ifeq ($(WITH_GMS),true)
+$(call inherit-product, vendor/gapps/common/common-vendor.mk)
+endif
