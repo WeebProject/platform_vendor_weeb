@@ -21,5 +21,8 @@ $(call inherit-product, vendor/weeb/config/versioning.mk)
 # Inherit from our overlay
 $(call inherit-product, vendor/weeb/config/overlay.mk)
 
+# Inherit from our prebuilt headers
+$(call inherit-product, vendor/weeb-headers/headers.mk)
+
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/weeb/config/BoardConfigWeeb.mk)
