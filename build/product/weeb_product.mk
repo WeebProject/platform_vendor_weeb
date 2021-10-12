@@ -23,17 +23,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_default.mk)
 # Inherit weeb products.
 $(call inherit-product, vendor/weeb/config/common_full_phone.mk)
 
-# Shared java libs
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras
-
 # Applications
 PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     PartnerBookmarksProvider \
     Stk \
     Tag \
-    TimeZoneUpdater
+    TimeZoneUpdater \
+    ThemePicker \
+    messaging \
+    Jelly \
 
 # OTA support
 PRODUCT_PACKAGES += \
