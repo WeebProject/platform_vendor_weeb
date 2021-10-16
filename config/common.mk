@@ -23,3 +23,6 @@ $(call inherit-product, vendor/weeb/config/overlay.mk)
 
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/weeb/config/BoardConfigWeeb.mk)
+
+# Inherit from our Gapps
+$(call inherit-product, vendor/weeb/config/gapps.mk)
