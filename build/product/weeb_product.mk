@@ -31,8 +31,7 @@ PRODUCT_PACKAGES += \
     Tag \
     TimeZoneUpdater \
     ThemePicker \
-    messaging \
-    Jelly \
+    messaging
 
 # OTA support
 PRODUCT_PACKAGES += \
