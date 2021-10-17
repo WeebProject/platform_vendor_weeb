@@ -1,7 +1,7 @@
 # Gapps
-ifeq ($(WITH_GMS),true)
-
-$(call inherit-product, vendor/gapps/common/common-vendor.mk)
+ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
+$(call inherit-product-if-exists, vendor/google/gms/config.mk)
+$(call inherit-product-if-exists, vendor/google/pixel/config.mk)
 
 # SetupWizard and Google Assistant properties
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -9,5 +9,12 @@ PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.theme=glif_v3_light \
     ro.opa.eligible_device=true \
 
+ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.clientidbase=android-google
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+endif
