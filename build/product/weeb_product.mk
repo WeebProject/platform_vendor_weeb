@@ -31,7 +31,8 @@ PRODUCT_PACKAGES += \
     Tag \
     TimeZoneUpdater \
     ThemePicker \
-    messaging
+    messaging \
+    QuickAccessWallet
 
 # OTA support
 PRODUCT_PACKAGES += \
