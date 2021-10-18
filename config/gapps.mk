@@ -1,7 +1,7 @@
 # Gapps
 ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
 $(call inherit-product-if-exists, vendor/google/gms/config.mk)
-$(call inherit-product-if-exists, vendor/google/pixel/config.mk)
+$(call inherit-product-if-exists, vendor/weebui/config.mk)
 
 # SetupWizard and Google Assistant properties
 PRODUCT_PRODUCT_PROPERTIES += \
