@@ -34,6 +34,10 @@ PRODUCT_PACKAGES += \
     messaging \
     QuickAccessWallet
 
+# Blur
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.launcher.blur.appLaunch=false
+
 # OTA support
 PRODUCT_PACKAGES += \
     recovery-refresh \
