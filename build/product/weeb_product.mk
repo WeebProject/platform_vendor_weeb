@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2018 The Android Open Source Project
-# Copyright (C) 2021 Weeb Projekt
+# Copyright (C) 2022 Weeb Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,97 +18,27 @@
 # This makefile is the basis of a generic system image for a handheld device.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_default.mk)
 
 # Inherit weeb products.
 $(call inherit-product, vendor/weeb/config/common_full_phone.mk)
 
-# Applications
+# More AOSP packages
 PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
-    PartnerBookmarksProvider \
-    Stk \
-    Tag \
-    TimeZoneUpdater \
-    ThemePicker \
     messaging \
-    QuickAccessWallet
+    PhotoTable \
+    preinstalled-packages-platform-aosp-product.xml \
+    WallpaperPicker
 
 # Blur
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.launcher.blur.appLaunch=false
 
-# OTA support
-PRODUCT_PACKAGES += \
-    recovery-refresh \
-    update_engine \
-    update_verifier
-
-# Wrapped net utils for /vendor access.
-PRODUCT_PACKAGES += netutils-wrapper-1.0
-
 # Charger images
 PRODUCT_PACKAGES += charger_res_images
-
-# system_other support
-PRODUCT_PACKAGES += \
-    cppreopts.sh \
-    otapreopt_script
-
-# Bluetooth libraries
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.hearing_aid.default
-
-# For ringtones that rely on forward lock encryption
-PRODUCT_PACKAGES += libfwdlockengine
-
-# System libraries commonly depended on by things on the system_ext or product partitions.
-# These lists will be pruned periodically.
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1 \
-    android.hardware.radio@1.0 \
-    android.hardware.radio@1.1 \
-    android.hardware.radio@1.2 \
-    android.hardware.radio@1.3 \
-    android.hardware.radio@1.4 \
-    android.hardware.radio.config@1.0 \
-    android.hardware.radio.deprecated@1.0 \
-    android.hardware.secure_element@1.0 \
-    android.hardware.wifi@1.0 \
-    libaudio-resampler \
-    libaudiohal \
-    libdrm \
-    liblogwrap \
-    liblz4 \
-    libminui \
-    libnl \
-    libprotobuf-cpp-full
-
-# These libraries are empty and have been combined into libhidlbase, but are still depended
-# on by things off /system.
-# TODO(b/135686713): remove these
-PRODUCT_PACKAGES += \
-    libhidltransport \
-    libhwbinder
-
-# Enable configurable audio policy
-PRODUCT_PACKAGES += \
-    libaudiopolicyengineconfigurable \
-    libpolicy-subsystem
 
 # Enable support of one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
-
-# Include all zygote init scripts. "ro.zygote" will select one of them.
-PRODUCT_COPY_FILES += \
-    system/core/rootdir/init.zygote32.rc:system/etc/init/hw/init.zygote32.rc \
-    system/core/rootdir/init.zygote64.rc:system/etc/init/hw/init.zygote64.rc \
-    system/core/rootdir/init.zygote64_32.rc:system/etc/init/hw/init.zygote64_32.rc
-
-# Put en_US first in the list, so make it default.
-PRODUCT_LOCALES := en_US
 
 # Disable extra StrictMode features on all non-engineering builds
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
