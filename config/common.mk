@@ -25,4 +25,4 @@ $(call inherit-product, vendor/weeb/config/overlay.mk)
 $(call inherit-product, vendor/weeb/config/BoardConfigWeeb.mk)
 
 # Inherit from our Gapps
-$(call inherit-product, vendor/weeb/config/gapps.mk)
+#$(call inherit-product, vendor/weeb/config/gapps.mk)
